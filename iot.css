@@ -66,7 +66,7 @@ body
   border-radius: 4px 0 0 4px;
 }
 
-h3,h1{
+h2,h1{
 	text-align : center;
 }
 
@@ -79,7 +79,7 @@ color:black;
 
 .container{
 	margin: 0 auto 50px;
-	width:1000px;
+	width:1150px;
 	padding: 40px;
 	border:1px solid #ddd;
 	background:#fff;
@@ -122,6 +122,7 @@ color:black;
 color:black;
 }
 
+
 a:link,a:visited
 {
 	display:block;
@@ -138,4 +139,32 @@ a:link,a:visited
 a:hover,a:active
 {
 	background-color:#7A991A;
+}
+
+.ingredients{
+	background-color: yellow;
+	color : black;
+	}
+
+.features{
+	background-color: green;
+	color : black;
+	}
+
+#columns{
+-webkit-column-count:3; /* Chrome, Safari, Opera */
+-moz-column-count:3; /* Firefox */
+column-count:3;
+
+-webkit-column-gap:50px; /* Chrome, Safari, Opera */
+-moz-column-gap:40px; /* Firefox */
+column-gap:100px;
+
+-webkit-column-rule:4px outset #336600; /* Chrome, Safari, Opera */
+-moz-column-rule:4px outset #336600; /* Firefox */
+column-rule:4px outset #336600;
+}
+#column_head{
+font-family : "Trebuchet MS", Helvetica, sans-serif;
+font-size: 100%
 }
