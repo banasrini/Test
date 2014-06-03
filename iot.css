@@ -168,3 +168,25 @@ column-rule:4px outset #336600;
 font-family : "Trebuchet MS", Helvetica, sans-serif;
 font-size: 100%
 }
+
+     .bubbledLeft, .bubbledRight
+        {
+            margin-top: 3px;
+            padding: 3px 5px 3px 5px;
+            max-width: 80%;
+            clear: both;
+            border: 1px solid grey;
+        }
+        .bubbledLeft
+        {
+            float: left;
+            margin-right: auto;
+            color: black;
+        }
+        .bubbledRight
+        {
+            float: right;
+            margin-left: auto;
+            text-align: justify;
+            color: blue;
+        }
