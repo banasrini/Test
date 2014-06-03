@@ -1,5 +1,5 @@
 (function () {
-            var button = PUBNUB.$('ping');
+            var button = PUBNUB.$('devicebutton');
             var pubnub = PUBNUB.init({
                 publish_key: 'demo',
                 subscribe_key: 'demo'
@@ -25,6 +25,7 @@
             // Printing my own message in my page
             function hello_to_device(message) {
                 $('#chat').append("<div class='bubbledRight'>" + message + "</div>");
+                
             }
 
             // subscribing to the channels that devices send messages to. Let this universally be called device-discovery
@@ -44,6 +45,7 @@
             // action when message received from the server
             function message-from-devices(message) {
                 $('#chat').append("<div class='bubbledLeft'>" + message + "</div>");
+          
             }
         
         	   
