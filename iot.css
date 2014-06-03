@@ -1,3 +1,9 @@
+body
+{
+ color : #E25822;
+ background: #f1f1f1
+}
+
 #cssmenu,
 #cssmenu ul,
 #cssmenu li #cssmenu a {
@@ -63,6 +69,14 @@
 h3,h1{
 	text-align : center;
 }
+
+h2,h1,h3{
+color:black;
+}
+
+
+
+
 .container{
 	margin: 0 auto 50px;
 	width:1000px;
@@ -96,7 +110,7 @@ h3,h1{
 .fa-globe{
   	position: relative;
  	color:red;
-  	line-height: 50px;
+  	line-height: 1px;
   	text-align: center;
   	z-index: 1;
   	margin: .25em;
@@ -104,29 +118,9 @@ h3,h1{
  }
 
 
-ul{
-	list-style-type:none;
-	margin:0;
-	padding:0;
-	overflow:hidden;
+.fa-li{
+color:black;
 }
-.nav-bgd{
-background-color:black;
-}
-
-.nav{
-	display: inline;
-	float: left;
-}
-
-.nav-float-left{
-	float:left;
-}
-
-.nav-float-right{
-	float:right;
-}
-
 
 a:link,a:visited
 {
