@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html>
 
+<title>
+	Internet of Things Dashboard
+</title>
+
 <head>
-<link rel="stylesheet" type="text/css" href="font-awesome-4.1.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="font-awesome-4.1.0/css/font-awesome.css">
-<link rel="stylesheet" type="text/css" href="iot.css">
+	<link rel="stylesheet" type="text/css" href="font-awesome-4.1.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="font-awesome-4.1.0/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="iot.css">
+	
+	<script src="http://cdn.pubnub.com/pubnub.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="notifier.js"></script>
 </head>
 
 <body>
@@ -39,14 +47,16 @@
 	<div class = "section">
 		<h3><i class="fa fa-spin fa-globe fa-3x"></i>Device Discovery</h3>
 		<h3 class = "para"><i class= "fa fa-quote-left"> </i>Who's online??<i class= "fa fa-quote-right"> </i></h3>
-		<ul class="fa-ul">
-			<li><i class = "fa fa-li fa-check-square" onclick="alert('pinged')"></i>blah blah </li>
+		<ul class="fa-ul" id = "ping">
+			<li><i class = "fa fa-li fa-check-square" onclick="alert('pinged')"></i>blah blah </li> <!-- <input type="text" id="hellodeivce" placeholder="Type here"><br /></input> 
+			<button id="devicebutton" onclick="Notifier.success('Your message has been sent')">Reply</button> -->
+			
 			<li><i class = "fa fa-li fa-check-square"> </i>blah blah </li>
 			<li><i class = "fa fa-li fa-check-square"> </i>blah blah </li>
 		</ul>
  	</div>
  	<div class = "section">
-		<h3>Lorem ipsum dolor sit amet, cu utamur oblique quo.</h3>
+		<h3>Information Stream!!</h3>
 		<p class = "para"> Nam ad diceret appetere efficiendi, 
 		cibo porro usu et, at mea inermis dignissim dissentiet. Aliquid scriptorem in mel. In constituam 
 		definitiones vel. At dictas accumsan quo.
@@ -61,35 +71,36 @@
 
 <div id="chat"></div>
 
- <script src ="iot.js"></script> // is this where i need to add this? need to verify once arduino is up and running. 
+ <script src ="client-arduino.js"></script> 
+ 
+ <!-- is this where i need to add this? need to verify once arduino is up and running. -->
 
 
-<div class = "ingredients">
-	<h2> The different ingredients involved! <i class ="fa fa-spinner fa-spin"></i> </h2>
+<div class = "features">
+	<h2> The different ingredients! <i class ="fa fa-spinner fa-spin"></i> </h2>
 	<p class = "bold">  </p>
 	<div id = 'columns'>
-		<h3 id ='column_head'> Embedded Devices </h3>
+		<h3 id ='column_head'> EMBEDDED DEVICES </h3>
 		Pick up your favorite embedded device and start connecting. This can range from a Raspberry Pi to an Arduino board 
-		or a PIC32. You can get a full list of the SDKs supported by PubNub for embedded devices here.
+		or a PIC32. You can get a full list of the SDKs supported by PubNub for embedded devices here. <br> </br>
 		<h3 id ='column_head'> CONNECT </h3>
-		Cu regione platonem vix, facilis repudiare eos te. Ad sint debet insolens quo. Semper deleniti mei 
-		cu. Et illum placerat complectitur quo. Latine dolorum assentior mea te, tritani praesent ea eos, 
-		inani possit corrumpit vix an.
-		<h3 id ='column_head'> SEND </h3>
-		Want to get to know me better, come have a sneak peek into what goes on in my head.
+		So you want to see which devices are online and who you can talk to. Using the subscribe() API you can 
+		do this in just two lines of code.
+		<h3 id ='column_head'> SEND <i class ="fa fa-wechat fa-3x"></i> </h3>
+		Publish() allows you to send data so fast that you couldn't have even said Pubnub by then. 
 	</div>
 </div>
 
 
-<div class = "features">
-	<h2> Features used  </h2>
+<div class = "ingredients">
+	<h2> Three simple but yummy recipes make up this Dashboard  </h2>
 		<div id = 'columns'>
 			<h3 id ='column_head'> PUBLISH <i class = "fa fa-volume-up fa-3x"></i> </h3>
-			Go ahead and find out more about the people in this with you. Find out common interests, issues you care about and maybe, even the food they like. <pre>       </pre>
+			Talk to your favorite embedded devices with just a simple click. <br> </br> 
 			<h3 id ='column_head'> SUBSCRIBE </h3>
-			Found out about a homeless person who needs help? Or maybe you need help distributing food for some people? Shout out loud and let others help.Because the louder you shout, the better people here!<pre>      				 </pre>
+			Listen to what the devices have to say. ouldn't have even said Pubnub by
 			<h3 id ='column_head'> PRESENCE <i class = "fa fa-users fa-3x"></i></h3>
-			Want to get to know me better, come have a sneak peek into what goes on in my head.
+			Real time updates of who's online and who's not. 
 		</div>
 </div>
 
