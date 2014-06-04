@@ -1,0 +1,124 @@
+# Real Time Internet of Things Dashboard
+
+### Try it now: [Real Time Internet of Things Dashboard][1]
+
+To connect two or more of your embedded devices and to view them all at the same place, you ensure they are all subscribed to the same channel. This dashboard can show you any number of devices that are online and also lets you bi-directionally chat with them. 
+
+> Get Source Code: [GitHub Repository for Real Time Internet of Things Dashboard][2]
+
+![Geohashing Chat Conversations based on Proximity Zoom Level][3]
+
+## Basics of Real Time Internet of Things Dashboard
+
+Next we'll cover some source code snippet for the features used in the dashboard. The application consists of several components. You will need the embedded device(s) all publishing to the same channel. They will be able to connect to that channel which will show their presence on the dash board. Using Pubnub, we will be able to stream any kind of sensor data that the devices send. This can range from photosensor data to motor sensor data to anything you wish to collect. 
+
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    // Dash Board
+    // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    function geohash( coord, resolution ) {
+        var rez = Math.pow( 10, resolution || 0 );
+        return Math.floor(coord * rez) / rez;
+    }
+
+![Acquire Lat Long Chat Proximity Location][4]
+
+## Dash Board Nitty-Grittys
+
+Once you connect your embedded devices to the network using publish(), the presence() feature will let you view them on your dashboard. Based on the embedded IoT device that you use, you will have to choose a different SDK. Here are the list of SDK for IoT provided by Pubnub. Choose your favorite one and fire away.
+> Choose SDK: [SDK for IoT embedded devices][5] 
+
+This demo will include Arduino and Raspberry Pi. 
+
+## Arduino SDK, DEVICE DISCOVERY
+
+This link will provide information about the basic Arduino program structure. Once you are familiar with the layout, check out the Arduino SDK at Pubnub. 
+> Arduino Link: [Arduino Homepage][6]
+
+  // Connect to the device discovery channel
+    client = PubNub.publish(channel, msg);
+
+  // Subscribing to Channel
+    client = PubNub.subscribe(channel);
+
+Arduino requires a setup before the actual publish and setup can happen, to ensure connectivity to the internet. This can be achieved by
+  //  Ethernet setup
+    Ethernet.begin(mac)
+
+So its just three steps:
+  1. connect to the internet using Ethernet.begin(mac)
+  2. publish to a channel
+  3. subscribe to a channel
+Volla! 
+
+## Raspberry Pi Setup
+
+The Pi is a powerful mini computer by itself, so the setup is a little different from Arduino. You can get the whole process of booting the Pi from the components required to the OS installation here.
+> Raspberry Pi setup: [Raspberry Pi installation and setup][7]
+
+I have used the Python SDK on Raspbian, but feel free to choose any SDK you want. 
+
+ // Connect to the device discovery channel
+    pubnub.publish({
+        'channel'  : channel,
+        'message'  : { 'text':'foo bar' }
+    })
+
+  // Subscribing to a channel
+    pubnub.subscribe({
+        'channel'  : channel,
+        'callback' : receive 
+    })
+
+## Javascript SDK for the dashboard
+
+The front end of the dashboard where all the action happens will be using the publish(), subscribe() and the presence() features. So in addition to just subscribing to the channels that the embedded devices publish to, presence() will help detect them. A callback from presence() helps print out the separate devices in the form of their uuids. 
+
+  //Init Method to Create PubNub Instance
+
+  <script src=http://cdn.pubnub.com/pubnub-3.6.3.min.js ></script>
+
+  // Init
+    var pubnub = PUBNUB.init({
+        publish_key   : 'demo',
+        subscribe_key : 'demo'
+    })
+
+  // LISTEN
+    pubnub.subscribe({
+        channel : "hello_world",
+        message : function(m){ alert(m) },
+        connect : publish
+    })
+
+    // SEND
+    function publish() {
+        pubnub.publish({
+            channel : "hello_world",
+            message : "Hi."
+      })
+
+      
+
+
+![Acquired Latitude Longitude Chat Proximity Group][5]
+
+## Multiplexing 9 Boxes
+
+You will calculate the surrounding squares to extend the taper and radius in a way that provides more accuracy. This will remove the "fencing" effect.
+
+## Geo Hashing with PubNub Conclusion
+
+That's it! You simply reduce the resolution of a geo coordinate and use that as a channel name on PubNub.  Also check out the browser's `navigator.geolocation.getCurrentPosition(...)` method to acquire lat/long in a chrome/firefox/ie/opera/mobile/safari browser.
+
+> Also checkout the [PubNub Connected Car Solution Kit][7]
+
+![Geohashing Chat Conversations based on Proximity Nearby][6]
+
+
+  [1]: http://stephenlb.github.io/geohash-chat-by-proximity/
+  [2]: https://github.com/stephenlb/geohash-chat-by-proximity
+  [3]: http://i.stack.imgur.com/tV9S7.jpg
+  [4]: http://i.stack.imgur.com/LUAvv.png
+  [5]: http://i.stack.imgur.com/GQD3n.png
+  [6]: http://i.stack.imgur.com/u0uE0.png
+  [7]: http://www.pubnub.com/developers/connected-car/
