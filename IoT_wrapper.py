@@ -5,20 +5,32 @@ import random
 import uuid
 
 
-class IOTWrapper(object):
-    def __init__(self, pubnub):
-        self.pubnub = pubnub
 
+class iotwrapper(object):
+    def __init__(self, publish_key,
+        subscribe_key,uuid, receiver):
+
+        self.publish_key = publish_key
+        self.subscribe_key = subscribe_key
+        self.uuid = uuid
+        self.receiver = receiver
+        self.pubnub = Pubnub( 'demo', 'demo', None, False)
+        self.pubnub.uuid = self.uuid
+    
+    
     def receive(self,message):
+        
         print(message)
         
     
     def send(self, channel, message):
+        print("Sending message on %s channel" % channel)
         self.pubnub.publish({
             'channel' : channel,
             'message' : message})
 
     def connect(self, channel):
+        print("Listening for messages on %s channel" % channel)
         self.pubnub.subscribe({
             'channel' : channel,
             'callback' : self.receive
