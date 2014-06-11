@@ -20,7 +20,7 @@ iotwrapper ard;
 
 
 
-void meaningoflife(){
+void receivedata(){
           Serial.println("in the callback");
         }
 
@@ -53,7 +53,7 @@ void loop()
 
         //Subscribe
 	Serial.println("waiting for a message (subscribe)");
-        ard.connectArd(channel, meaningoflife);
+        ard.connectArd(channel, receivedata);
 	
 	Serial.println();
 }
