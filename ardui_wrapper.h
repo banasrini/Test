@@ -15,7 +15,7 @@ class iotwrapper{
   
   bool initvar(const char *publish_key, const char *subscribe_key, const char *uuid);
   bool sendArd(const char *channel, const char *message);
-  bool connectArd(const char *channel);
+  bool connectArd(const char *channel, void (*callback)(void));
   bool printArd(const char *message);
   
   
@@ -37,7 +37,8 @@ Serial.println(" published a message ");
 return client;
 }
 
-bool iotwrapper::connectArd(const char *channel){
+bool iotwrapper::connectArd(const char *channel,void (*callback)(void)){
+  callback();
   PubSubClient *pclient = PubNub.subscribe(channel);
 	if (!pclient) {
 		return 0;
@@ -46,6 +47,7 @@ bool iotwrapper::connectArd(const char *channel){
 		char c = pclient->read();
 		Serial.print(c);
 	}
+
 	pclient->stop();
 	Serial.println();
   
