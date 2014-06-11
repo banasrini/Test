@@ -1,3 +1,5 @@
+
+
 #include <SPI.h>
 #include <Ethernet.h>
 #include "PubNub.h"
@@ -8,13 +10,19 @@
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 
 
+
 char pubkey[] = "demo";
 char subkey[] = "demo";
 char channel[] = "button-reply";
-char uuid[] = "bana";
-int subsuccess = 0;
-int pubsuccess = 0;
+char uuid[] = "Arduino";
+
 iotwrapper ard;
+
+
+
+void meaningoflife(){
+          Serial.println("in the callback");
+        }
 
 void setup()
 {
@@ -35,23 +43,17 @@ void setup()
 }
 
 void loop()
-{
-        
-      
+{      
 	Ethernet.maintain();
         
         //Publish
 	Serial.println("publishing a message");
-        int pubsuccess = ard.sendArd(channel,"\"Hey There\"");
+        ard.sendArd(channel,"\"Hey There\"");
         
 
         //Subscribe
 	Serial.println("waiting for a message (subscribe)");
-        int sucbsuccess = ard.connectArd(channel);
+        ard.connectArd(channel, meaningoflife);
 	
-
 	Serial.println();
-        
-
-	
 }
