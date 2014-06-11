@@ -29,11 +29,11 @@ class iotwrapper(object):
             'channel' : channel,
             'message' : message})
 
-    def connect(self, channel):
+    def connect(self, channel, receiver):
         print("Listening for messages on %s channel" % channel)
         self.pubnub.subscribe({
             'channel' : channel,
-            'callback' : self.receive
+            'callback' : self.receiver
         })
 
    
