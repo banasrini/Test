@@ -18,10 +18,6 @@ class iotwrapper(object):
         self.pubnub.uuid = self.uuid
     
     
-    def receive(self,message):
-        
-        print(message)
-        
     
     def send(self, channel, message):
         print("Sending message on %s channel" % channel)
