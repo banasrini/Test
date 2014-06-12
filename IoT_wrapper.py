@@ -19,13 +19,13 @@ class iotwrapper(object):
     
     
     def send(self, channel, message):
-        print("Sending message on %s channel" % channel)
+        # Sending message on the channel
         self.pubnub.publish({
             'channel' : channel,
             'message' : message})
 
     def connect(self, channel, receiver):
-        print("Listening for messages on %s channel" % channel)
+        # Listening for messages on the channel
         self.pubnub.subscribe({
             'channel' : channel,
             'callback' : receiver
