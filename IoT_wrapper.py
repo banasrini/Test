@@ -8,12 +8,11 @@ import uuid
 
 class iotwrapper(object):
     def __init__(self, publish_key,
-        subscribe_key,uuid, receiver):
+        subscribe_key,uuid):
 
         self.publish_key = publish_key
         self.subscribe_key = subscribe_key
         self.uuid = uuid
-        self.receiver = receiver
         self.pubnub = Pubnub( 'demo', 'demo', None, False)
         self.pubnub.uuid = self.uuid
     
@@ -29,7 +28,7 @@ class iotwrapper(object):
         print("Listening for messages on %s channel" % channel)
         self.pubnub.subscribe({
             'channel' : channel,
-            'callback' : self.receiver
+            'callback' : receiver
         })
 
    
