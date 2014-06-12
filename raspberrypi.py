@@ -1,17 +1,17 @@
 from Pubnub import Pubnub
 from IoT_wrapper import iotwrapper
 
-pi = iotwrapper(publish_key = 'demo', subscribe_key = 'demo', uuid = 'PI', receiver ='do_something')
+pi = iotwrapper(publish_key = 'demo', subscribe_key = 'demo', uuid = 'PI')
 
 channel = 'button-reply'
 message = "hello from pi"
 
-def receiver(message):
+def do_something(message):
   print(message)
   
 pi.send(channel, message)
 
-pi.connect(channel, receiver)
+pi.connect(channel, do_something)
 
 
   
