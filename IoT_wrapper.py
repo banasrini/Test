@@ -6,7 +6,7 @@ import uuid
 
 
 
-class iotwrapper(object):
+class iotbridge(object):
     def __init__(self, publish_key,
         subscribe_key,uuid):
 
