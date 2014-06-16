@@ -15,7 +15,7 @@ class iotwrapper{
   
   bool initvar(const char *publish_key, const char *subscribe_key, const char *uuid);
   bool sendArd(const char *channel, const char *message);
-  bool connectArd(const char *channel, void (*callback)(void));
+  String connectArd(const char *channel);
   bool printArd(const char *message);
   
   
@@ -26,30 +26,32 @@ bool iotwrapper::initvar(const char *publish_key, const char *subscribe_key, con
   
   PubNub.begin(publish_key,subscribe_key);
   PubNub.set_uuid(uuid);
-  Serial.println("initialized the variables");
 }
 
 bool iotwrapper::sendArd(const char *channel, const char *message){
   EthernetClient *client;
   client = PubNub.publish(channel,message);
- 
-Serial.println(" published a message ");
-return client;
+  return client;
 }
 
-bool iotwrapper::connectArd(const char *channel,void (*callback)(void)){
-  callback();
+String iotwrapper::connectArd(const char *channel){
+  
+  String message = "";
+  int i = 0;
   PubSubClient *pclient = PubNub.subscribe(channel);
 	if (!pclient) {
 		return 0;
 	}
+	
   while (pclient->wait_for_data()) {
 		char c = pclient->read();
-		Serial.print(c);
+                message += c;
 	}
+
 
 	pclient->stop();
 	Serial.println();
+  return message;
   
 }
   
