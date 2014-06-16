@@ -4,7 +4,7 @@
 
 
 
-class iotwrapper{
+class dashboard{
   public:
   
   const char *publish_key;
@@ -13,28 +13,29 @@ class iotwrapper{
   const char *channel;
   const char *message;
   
-  bool initvar(const char *publish_key, const char *subscribe_key, const char *uuid);
-  bool sendArd(const char *channel, const char *message);
-  String connectArd(const char *channel);
-  bool printArd(const char *message);
+  bool dashinit(const char *publish_key, const char *subscribe_key, const char *uuid);
+  bool dashsend(const char *channel, const char *message);
+  String dashconnect(const char *channel);
+  bool dashprint(const char *message);
   
   
 };
   
 
-bool iotwrapper::initvar(const char *publish_key, const char *subscribe_key, const char *uuid){
+bool dashboard::dashinit(const char *publish_key, const char *subscribe_key, const char *uuid){
   
   PubNub.begin(publish_key,subscribe_key);
   PubNub.set_uuid(uuid);
+  Serial.println("initialized the variables");
 }
 
-bool iotwrapper::sendArd(const char *channel, const char *message){
+bool dashboard::dashsend(const char *channel, const char *message){
   EthernetClient *client;
   client = PubNub.publish(channel,message);
   return client;
 }
 
-String iotwrapper::connectArd(const char *channel){
+String dashboard::dashconnect(const char *channel){
   
   String message = "";
   int i = 0;
@@ -42,9 +43,9 @@ String iotwrapper::connectArd(const char *channel){
 	if (!pclient) {
 		return 0;
 	}
-	
   while (pclient->wait_for_data()) {
 		char c = pclient->read();
+		//Serial.print(c);
                 message += c;
 	}
 
