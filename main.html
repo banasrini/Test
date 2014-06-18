@@ -47,23 +47,26 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron" style = "border-radius:25px">
       <div class="container">
-        <h1 style = "text-align:center"> Real-time Internet of Things Dashboard </h1>
-        <p class = "red">Pubnub introduces the simplest, most powerful dashboard ever. Connect to all your devices and 
-        talk to them in real time. By using Pubnub, you can build these dashboards in just a few lines of code. Get out 
-        your favorite embedded device and start connecting! This dashboard lets you connect with devices, talk bidirectionally 
-        to and with them and view who is online at any instant.
+      <h1 style = "text-align:center">DashJazz IoT Connector</h1>
+        <h3 style = "text-align:center; color:red"> Real-time Internet of Things Dashboard </h3>
+        <p class = "red">PubNub introduces the simplest dashboard ever. Connect all your devices and 
+        talk to them in real time. By using PubNub, you can build these dashboards with just a few lines of code. Get out 
+        your favorite embedded device and start connecting! This dashboard lets you connect an Arduino to a Raspberry Pi, lets them
+        talk bidirectionally to each other and you can view which device is online at any instant.
         <p>Continue from here to learn more about the basic introduction and getting started.</p>
       </div>
     </div>
     <div class = "jumbotron" style = "border-radius:25px">
-    
+    <h1 style = "text-align:center">DashJazz IoT Connector</h1><br>
 		<div class = "row">
-    			<div class = "col-md-8">
+    			<div class = "col-md-8" style ="background-color:#fcdfff;border-radius:25px">
     
    					<div id="chat"></div>
      					<div id = "online">
-						<ul id ="peeps" style = "font size:3">
-							<h2 style ="font-size:250%"> Online devices <i class ="fa fa-spinner fa-spin"></i></h2>
+						<ul id ="peeps" style = "font size:3; list-style-position:inside">
+							<h2 style ="font-size:250%; text-align:center"> Online devices <i class ="fa fa-spinner fa-spin"></i></h2>
+							<li style ="text-align:center"> Pi123 </li>
+							<li style ="text-align:center"> Arduino </li>
 						</ul>
 					</div>
     		
@@ -77,6 +80,8 @@
 				onclick="Notifier.success('You have pinged your device')"><strong>Ping your devices!!</strong></button>
    				<input type="text" size ="25" style ="background-color:white; color:black;" id="clientText" value="Hey There!!"
    				onfocus="if(this.value != ''){this.value ='';this.style.color='#999'}"><br /></input>
+   				<br></br>
+   				<br></br>
    				</div>
    			
    	
@@ -86,10 +91,10 @@
    	<div class = "jumbotron" style = "border-radius:25px">
    	<h2 style ="font-size:250%; text-align:center">Basic Introduction</h2>
    	<h2 style ="font-size:150%">Explore the Embedded Devices</h2>
-          <p style ="font-size:100%">Choose from a list of <a href="http://www.pubnub.com/documentation/">
+          <p style ="font-size:100%">Choose from a list of <a href="http://www.PubNub.com/documentation/">
           embedded devices</a> supported by
-           Pubnub for this dashboard. Here we will demonstrate connecting a Raspberry Pi and an Arduino to the
-           Dashboard. The following are the features provided by this dashboard. </p>
+           PubNub for this dashboard. Here we will demonstrate connecting a Raspberry Pi and an Arduino to the
+           DashJazz IoT Connector. The following are the features provided by this dashboard. </p>
           
    	
 
@@ -105,11 +110,12 @@
         <div class="col-md-4">
           <h2 style ="font-size:150%">Connect <i class ="fa fa-wechat fa-2x"></i></h2>
           <p style ="font-size:100%">Connect() allows you to listen to other devices, 
-          be it an Arduino board, a Raspberry Pi or any other embedded device supported by Pubnub. </p>
+          be it an Arduino board, a Raspberry Pi or any other embedded device that talks PubNub. </p>
        </div>
         <div class="col-md-4">
           <h2 style ="font-size:150%">Who's online <i class = "fa fa-users fa-2x"></i></h2>
-          <p style ="font-size:100%">Whats the point of sending and connecting if you can't see who's online? This simple dashboard lets you check the 
+          <p style ="font-size:100%">What is the point of sending and connecting if you can't see who's online? 
+          This simple dashboard lets you check the 
           different devices online at any instant.</p>
         </div>     
 </div>
@@ -121,26 +127,26 @@
     	
     	<h3 style ="font-size:200%; color:red; text-align:center">Raspberry Pi</h3>
           <p style ="font-size:100%">This post takes you through the process of connecting the Raspberry Pi to the PubNub 
-          network and communicating to other devices via the PubCon.</p>
+          network and communicating to other devices via the dashboard.</p>
           <p style ="font-size:100%">The <a href = "http://www.raspberrypi.org">Raspberry Pi </a>is a credit-card sized computer that plugs into your TV
              and a keyboard. 
             It is a capable little computer which can be used in electronics projects, and for many of the 
             things that your desktop PC does, like spreadsheets, word-processing and games. Check out their website at
             <a href = "http://www.raspberrypi.org"> Raspberry Pi </a> to set up your Pi. <br> </br>
-            PubNub provides extensive documentation and support for the Raspberry Pi <a href = "http://www.pubnub.com/documentation/">here </a>. Once
+            PubNub provides extensive documentation and support for the Raspberry Pi <a href = "http://www.PubNub.com/documentation/">here </a>. Once
             you are up and running with the Pi, feel free to choose your favorite language and start connecting.
-            I have used <a href = "https://github.com/pubnub/python"> Python </a> for this project. </p>
-          <p style ="font-size:100%"><a class="btn btn-default" href="http://www.pubnub.com/documentation/" role="button">View details »</a></p> 
+            I have used <a href = "https://github.com/PubNub/python"> Python </a> for this project. </p>
+          <p style ="font-size:100%"><a class="btn btn-default" href="http://www.PubNub.com/documentation/" role="button">View details »</a></p> 
     </div>
     
     
     <div class = "jumbotron" style = "border-radius:25px;background-color:#f9966b">
             
-            <p style ="font-size:100%"> <strong> STEP 1: </strong> Connect the Pi to a monitor, keyboard, mouse and ethernet cable. Login in to
+            <p style ="font-size:100%"> <strong> STEP 1: </strong> Connect the Pi to a monitor, keyboard, mouse and ethernet cable. Login to
             the Raspberry Pi OS and open IDLE, the python IDE. 
             <br></br>
             <p style ="font-size:100%"> <strong> STEP 2: </strong> Open a new window and paste the following code.
-            <pre><code>from Pubnub import Pubnub
+            <pre><code>from PubNub import PubNub
 from IoT_wrapper import iotwrapper
 
 pi = iotwrapper(publish_key = 'demo', 
@@ -170,7 +176,8 @@ pi.connect(channel, callbackfn)
               
               </p>
         <p style ="font-size:100%"> <strong> STEP 3: </strong> Run this program,
-      and see your device UUID appear on the dashboard.  Huzzzaaaaah!
+      and see your device UUID appear on the dashboard. You can also bi-directionally communicate between your embedded devices
+      and the dashboard. Huzzzaaaaah!
     	Thats it!  
     </div>
   <!--  <div class = "jumbotron" style = "border-radius:25px">
@@ -181,7 +188,7 @@ pi.connect(channel, callbackfn)
             <strong>SEND: </strong>This invokes the publish() API to send any message over a desired 
 			channel.</p>
             <p><pre><code>def send(self, channel, message):
-self.pubnub.publish({
+self.PubNub.publish({
     'channel' : channel,
     'message' : message})</code></pre></p>    
             <br></br>
@@ -191,7 +198,7 @@ self.pubnub.publish({
             the call back function receive is invoked when subscribe runs.
              </p>
 			<pre><code>def connect(self, channel, receiver):
-self.pubnub.subscribe({
+self.PubNub.subscribe({
     'channel' : channel,
     'callback' : receiver})</code></pre>
     		
@@ -207,8 +214,9 @@ self.pubnub.subscribe({
 -->
 <div class = "jumbotron" style = "border-radius:25px;background-color:#D2B9D3">
     	<h3 style ="font-size:200%; color:red; text-align:center">Arduino</h3>
-    	<p style ="font-size:100%">This post takes you through the process of connecting the Arduino to the PubNub network and communicating
-            to other devices via the dashboard.</p>
+    	<p style ="font-size:100%">This post takes you through the process of connecting the Arduino to the PubNub network and 
+    	communicating
+            to other devices via the DashJazz IoT Connector.</p>
             
             <p style ="font-size:100%">The <a href = "http://arduino.cc">Arduino </a>is a tool for making computers that can sense and control 
             more of the physical world than your desktop computer. It's an open-source physical computing 
@@ -216,13 +224,14 @@ self.pubnub.subscribe({
             for the board. Check out their website at
             <a href = "http://arduino.cc"> Arduino </a> for more information. <br> </br>
             PubNub provides extensive documentation and support for Arduino. You
-            can find the SDK for Arduino <a href="https://github.com/pubnub/arduino">here</a>.
+            can find the SDK for Arduino <a href="https://github.com/PubNub/arduino">here</a>.
             
-            <p style ="font-size:100%"><a class="btn btn-default" href= "http://www.pubnub.com/documentation/" role="button">View details »</a></p> 
+            <p style ="font-size:100%"><a class="btn btn-default" href= "http://www.PubNub.com/documentation/" role="button">View details »</a></p> 
 </div>
 
 <div class = "jumbotron" style = "border-radius:25px;background-color:#D2B9D3">
-<p style ="font-size:100%"> <strong> STEP 1: </strong> Connect the Arduino to a computer using the USB port. Using an Ethernet shield, connect the 
+<p style ="font-size:100%"> <strong> STEP 1: </strong> Connect the Arduino to a computer using the USB port. Using an 
+Ethernet shield, connect the 
             Arduino board to the internet. Now download the Arduino IDE for your PC<a href ="http://arduino.cc/en/main/software"> here </a>.
             Full and comprehensive instructions for installing the software for Windows, Linux and Mac can be found at this site.
             <p style ="font-size:100%"> Once you have successfully installed the Arduino Software and, depending on your platform, USB drivers, you should now be
@@ -301,15 +310,19 @@ void loop()
               </p>
      
       <p style ="font-size:100%"> <strong> STEP 3: </strong> Upload this program on your Arduino,
-      and see your device UUID appear on the dashboard.  Huzzzaaaaah!
+      and see your device UUID appear on the dashboard. You can also bi-directionally communicate between your embedded devices
+      and the dashboard. Huzzzaaaaah!
     	Thats it! 
     </div>
     
     <div class="jumbotron" style = "border-radius:25px; background-color:ffa62f">
     <h3 style ="font-size:200%; color:red; text-align:center">Visual Dashboard</h3>
-    	<p style ="font-size:100%">PubCon allows any embedded device to talk to another. Whether its a PIC32 or an arduino board,
-    	 all you need to do is to plug and start connecting. The dashboard just subscribes and publishes to the same channel as the
-    	devices. It also uses the presence API to detect the different devices connected to it. The different components of this dashboard
+    	<p style ="font-size:100%">The dashboard allows any embedded device to talk to another. Whether its a 
+    	PIC32 or an arduino board,
+    	 all you need to do is to plug and start connecting. The dashboard subscribes and 
+    	 publishes to the same channel as the
+    	devices. It also uses the presence API to detect the different devices connected to it. 
+    	The different components of this dashboard
     	are elucidated below. 
     	 </p>
             
@@ -321,12 +334,12 @@ void loop()
             <p>Insert image of dashboard. All the code you need to build the web page for the dashboard is below. Just copy and paste. </p>
 
 JavaScript Include
-<pre><code>&ltscript src="http://cdn.pubnub.com/pubnub.min.js"&gt&lt/script&gt
+<pre><code>&ltscript src="http://cdn.PubNub.com/PubNub.min.js"&gt&lt/script&gt
 </code></pre>
 <pre><code>
 //The basic send “publish” functionality with sending a message
 
-pubnub.publish({
+PubNub.publish({
     channel: 'iot-dashboard',
     presence: function(m){console.log(m)},
     message: $('#clientText').val()   
@@ -335,7 +348,7 @@ pubnub.publish({
 <pre><code>
 //The basic receive “subscribe” functionality to receive messages
 
-pubnub.subscribe({
+PubNub.subscribe({
     channel: 'iot-dashboard',
     message: function(m){console.log(m)}
  });
@@ -344,13 +357,15 @@ pubnub.subscribe({
 <pre><code>
 // The presence functionality to detect online users
             
-pubnub.subscribe({
+PubNub.subscribe({
     channel: 'button-reply',
     message: function(m){console.log(m)},
     presence: function(m){console.log(m)}
 })</pre></code> 
 <p style ="font-size:100%"> That's it. Putting all the pieces together, you have just built the coolest dashboard for the 
-    Internet of Things that works in real time. Go ahead, choose any other embedded device and start connecting. 
+    Internet of Things that works in real time. Go ahead, choose any other embedded device and start connecting. For the whole code
+    check out the GitHub Repo for the dashboard. To check out the live demo of how this dashboard lets devices talk to each other, click 
+    here.
     </p>          
     </div>
     
@@ -385,7 +400,7 @@ pubnub.subscribe({
         <h3 style ="font-size:200%; color:red">More with PubNub Real-Time Network</h3>
         <p style ="font-size:150%"> Do you like this freebie? Want to get more stuff like this?
         Subscribe to <a href = "https://twitter.com/PubNub">@PubNub</a> news and updates to stay tuned on great designs.</p>
-        <p><a href="http://www.pubnub.com/get-started/">PubNub Real-Time Network</a>.
+        <p><a href="http://www.PubNub.com/get-started/">PubNub Real-Time Network</a>.
         <p><a href="https://twitter.com/PubNub">Tweet.</a></p>
         
         </div>
